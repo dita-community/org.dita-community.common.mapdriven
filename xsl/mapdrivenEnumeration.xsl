@@ -16,6 +16,7 @@
     structure in the publication.
     
     Copyright (c) 2011, 2014 DITA For Publishers
+    Copyright (c) 2015 DITA Community
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -102,7 +103,9 @@
 
   <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicGroup(.)]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
-    <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>
+    <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure"

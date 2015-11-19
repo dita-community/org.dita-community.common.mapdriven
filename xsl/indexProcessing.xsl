@@ -18,6 +18,7 @@
     NOTE: This functionality is not completely implemented.
     
     Copyright (c) 2010, 2014 DITA For Publishers
+    Copyright (c) 2015 DITA Community
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
