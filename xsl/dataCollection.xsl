@@ -36,7 +36,6 @@
   <xsl:import href="glossaryProcessing.xsl"/>
   <xsl:import href="indexProcessing.xsl"/>
   <xsl:import href="applicabilityDataCollection.xsl"/>
-  <xsl:import href="mapdrivenEnumerationD4P.xsl"/>
 
   <xsl:template name="mapdriven:collect-data">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
