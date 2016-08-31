@@ -15,7 +15,7 @@
     additional data or modify or extend the built-in data collection.
     
     Copyright (c) 2011, 2014 DITA For Publishers
-    Copyright (c) 2015 DITA Community
+    Copyright (c) 2015, 2016 DITA Community
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -67,7 +67,9 @@
         <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] construct-enumerable-structure:         Start time: <xsl:value-of select="$startTime-enum"/></xsl:message>
         </xsl:if>          
-        <xsl:apply-templates mode="construct-enumerable-structure" select="."/>
+        <xsl:apply-templates mode="construct-enumerable-structure" select=".">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
         <xsl:variable name="endTime-enum" select="date:getTime(date:new())"/>
         <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] construct-enumerable-structure: Elapsed time: <xsl:value-of select="($endTime-enum - $startTime-enum) div 1000"/> seconds.</xsl:message>
@@ -80,7 +82,9 @@
           <xsl:if test="$doDebug">
             <xsl:message> + [DEBUG] group-and-sort-glossary: Start time: <xsl:value-of select="$startTime-gloss"/></xsl:message>
           </xsl:if>
-          <xsl:apply-templates mode="group-and-sort-glossary" select="."/>
+          <xsl:apply-templates mode="group-and-sort-glossary" select=".">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          </xsl:apply-templates>
           <xsl:variable name="endTime-gloss" select="date:getTime(date:new())"/>
           <xsl:if test="$doDebug">
             <xsl:message> + [DEBUG] group-and-sort-glossary: Elapsed time: <xsl:value-of select="($endTime-gloss - $startTime-gloss) div 1000"/> seconds.</xsl:message>
@@ -95,7 +99,9 @@
       <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] data-collection-extensions: Start time: <xsl:value-of select="$startTime-dcext"/></xsl:message>
       </xsl:if>
-      <xsl:apply-templates mode="data-collection-extensions" select="."/>
+      <xsl:apply-templates mode="data-collection-extensions" select=".">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
       <xsl:variable name="endTime-dcext" select="date:getTime(date:new())"/>
       <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] data-collection-extensions: Elapsed time: <xsl:value-of select="($endTime-dcext - $startTime-dcext) div 1000"/> seconds.</xsl:message>

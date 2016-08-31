@@ -16,7 +16,7 @@
     structure in the publication.
     
     Copyright (c) 2011, 2014 DITA For Publishers
-    Copyright (c) 2015 DITA Community
+    Copyright (c) 2015, 2016 DITA Community
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -261,6 +261,7 @@
     match="*[df:class(., 'topic/section')] | 
     *[df:class(., 'topic/example')] | 
     *[df:class(., 'topic/fig')] | 
+    *[df:class(., 'topic/table')] | 
     *[df:class(., 'topic/note')] | 
     *[df:class(., 'topic/bodydiv')] | 
     *[df:class(., 'topic/sectiondiv')]
@@ -269,18 +270,6 @@
     <xsl:call-template name="construct-enumerated-element">
       <xsl:with-param name="content" as="node()*">
         <xsl:apply-templates mode="#current"/>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template mode="construct-enumerable-structure" priority="10"
-    match="
-    *[df:class(., 'topic/table')]
-    ">
-    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
-    <xsl:call-template name="construct-enumerated-element">
-      <xsl:with-param name="content" as="node()*">
-        <empty/>
       </xsl:with-param>
     </xsl:call-template>
   </xsl:template>
