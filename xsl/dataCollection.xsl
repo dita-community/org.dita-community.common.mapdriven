@@ -50,16 +50,10 @@
       <!-- Index Terms: -->
       <xsl:if test="$generateIndexBoolean">
         <xsl:message> + [INFO] Grouping and sorting index terms...</xsl:message>
-        <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] group-and-sort-index: Start time: <xsl:value-of select="$startTime-gi"/></xsl:message>
-        </xsl:if>
         <xsl:apply-templates mode="group-and-sort-index" select="."/>
       </xsl:if>
       <!-- Enumerated (countable) elements: -->
       <enum:enumerables>
-        <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] construct-enumerable-structure:         Start time: <xsl:value-of select="$startTime-enum"/></xsl:message>
-        </xsl:if>          
         <xsl:apply-templates mode="construct-enumerable-structure" select=".">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         </xsl:apply-templates>
@@ -67,9 +61,6 @@
       <!-- Glossary entries -->
       <glossdata:glossary-entries>
         <xsl:if test="$generateGlossaryBoolean">
-          <xsl:if test="$doDebug">
-            <xsl:message> + [DEBUG] group-and-sort-glossary: Start time: <xsl:value-of select="$startTime-gloss"/></xsl:message>
-          </xsl:if>
           <xsl:apply-templates mode="group-and-sort-glossary" select=".">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           </xsl:apply-templates>
